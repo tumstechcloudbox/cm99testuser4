@@ -1,0 +1,16 @@
+<ivysettings>
+	
+	<property name="ivy.checksums" value="" override="true"/>
+	
+	<settings defaultResolver="chain-resolver" />
+	<resolvers>
+		<url name="cloudbox" m2compatible="true">
+			<artifact
+			pattern="http://cloudboxonline.cloudmunch.com:8080/nexus/service/local/repositories/CloudBox/content/[organization]/[module]/[revision]/[module]-[revision].[ext]"/>
+			<ivy pattern="http://cloudboxonline.cloudmunch.com:8080/nexus/service/local/repositories/CloudBox/content/[organization]/[module]/[revision]/[module]-[revision].xml"/>
+		</url>
+		<chain name="chain-resolver" returnFirst="true">
+			<resolver ref="cloudbox"/>
+		</chain>
+	</resolvers>
+</ivysettings>

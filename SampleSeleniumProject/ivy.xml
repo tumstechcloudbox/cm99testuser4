@@ -1,0 +1,7 @@
+<ivy-module version="2.0">
+	<info organisation="com.cloudbox" module="JavaCoverage" />
+	<dependencies>
+		<dependency org="junit" name="junit" rev="4.4" />
+		<dependency org="cloudmunch" name="selenium" rev="2.25" />
+	</dependencies>
+</ivy-module>

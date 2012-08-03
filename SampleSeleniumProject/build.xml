@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="SampleSeleniumProject" xmlns:ivy="antlib:org.apache.ivy.ant">
+	
+	<ivy:settings file="ivysettings.xml"/>
+	
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="JavaTarget" value="1.6"/>
+    <property name="JavaSource" value="1.6"/>
+    <property name="target" value="${basedir}/target"/>
+    <property name="bin" value="${target}/classes"/>
+	
+    <path id="SampleSeleniumProject.classpath">
+        <pathelement location="lib/junit-4.4.jar"/>
+        <pathelement location="lib/selenium-server-standalone-2.25.0.jar"/>
+    </path>
+	
+    <target name="init" depends="resolve" description="">
+        <mkdir dir="${target}"/>
+        <mkdir dir="${bin}"/>
+        <copy includeemptydirs="false" todir="${bin}">
+            <fileset dir="cloudbox">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+	
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<ivy:retrieve />
+	</target>
+			
+    <target name="clean" description="">
+        <delete dir="${bin}"/>
+    </target>
+	
+    <target depends="clean" name="cleanall"/>
+	
+    <target depends="build-project, jar" name="build"/>
+	
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" includeantruntime="false" debuglevel="${debuglevel}" destdir="${bin}" source="${JavaSource}" target="${JavaTarget}">
+            <src path="cloudbox"/>
+            <classpath refid="SampleSeleniumProject.classpath"/>
+        </javac>
+    </target>
+	
+	<target name="jar" description="">
+		<jar destfile="${target}/${ant.project.name}.jar" compress="yes" basedir="${bin}">
+		</jar>
+	</target>
+	
+</project>
