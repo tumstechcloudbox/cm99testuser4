@@ -17,6 +17,7 @@ public class SampleSeleniumTestCase {
 	
 	@Test
 	public void testRunGoogle() {
+		System.out.println();
 		System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LOCATION);
 		WebDriver driver = new ChromeDriver();
 		((ChromeDriver)driver).get("http://www.google.com");

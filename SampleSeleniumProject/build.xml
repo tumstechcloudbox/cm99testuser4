@@ -17,7 +17,7 @@
 	
     <path id="SampleSeleniumProject.classpath">
         <pathelement location="lib/junit-4.4.jar"/>
-        <pathelement location="lib/selenium-server-standalone-2.25.0.jar"/>
+        <pathelement location="lib/selenium-2.25.jar"/>
     </path>
 	
     <target name="init" depends="resolve" description="">
